@@ -5,7 +5,7 @@
 ![home](https://upload.cc/i1/2021/03/12/tpPo3K.png)
 
 ## 網站首頁
-https://elephklin.github.io/vueFinal/
+https://elephklin.github.io/vueFinal_V2/#/
 
 ## 相關技術
 
