@@ -1,0 +1,29 @@
+.process_style {
+  .process_now {
+    background-color: $other;
+    color: $light;
+    border: 1.5px solid $other;
+  }
+  .process_undone {
+    border: 1.5px solid $other;
+    color: $other;
+  }
+}
+
+.form-check-inline {
+  margin-right: 24px;
+}
+
+.order {
+  .form-wrap {
+    width: 100%;
+    border: 1px solid $other;
+    h4 {
+      color: $light;
+      background-color: $other;
+    }
+    form {
+      width: 80%;
+    }
+  }
+}

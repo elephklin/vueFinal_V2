@@ -1,0 +1,74 @@
+.backList {
+  .list-group-item.active {
+    background-color: $other;
+    color: $light;
+    border-color: transparent;
+  }
+}
+
+.back_table {
+  .table {
+    border: 1px solid $other;
+  }
+  th,
+  td {
+    border-top: 1px solid $other;
+  }
+  thead th {
+    border-bottom: 0;
+  }
+  thead tr {
+    background-color: $other;
+    color: $light;
+  }
+
+  #orderModal {
+    .userData {
+      background-color: $other;
+      color: $light;
+      padding-left: 15px;
+    }
+  }
+
+  #productModal .modal-header {
+    background-color: $other;
+    span {
+      color: $light;
+    }
+  }
+
+  #couponModal .modal-header {
+    background-color: $other;
+    color: $light;
+    span {
+      color: $light;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .myOrder_table {
+    .RWD_view {
+      display: none;
+    }
+  }
+}
+.imgSize {
+  background-size: cover;
+  background-position: center center;
+  width: 50px;
+  height: 50px;
+}
+.userData {
+  font-weight: bold;
+  background-color: $other;
+  padding: 0.75rem;
+}
+
+@media (max-width: 992px) {
+  .backProducts_table {
+    .RWD_view {
+      display: none;
+    }
+  }
+}

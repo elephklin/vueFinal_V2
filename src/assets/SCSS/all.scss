@@ -1,0 +1,20 @@
+// 套用變數的方法
+@import "~bootstrap/scss/functions";
+
+@import "./helpers/_variables";
+@import "~bootstrap/scss/bootstrap";
+
+
+// 載入自訂元件
+@import "./elements/Base";
+@import "./elements/Header";
+@import "./elements/Footer";
+@import "./elements/Home";
+@import "./elements/ProductList";
+@import "./elements/Product";
+@import "./elements/Cart";
+@import "./elements/Order";
+@import "./elements/Checkout";
+@import "./elements/Back";
+@import "./elements/Pagination";
+@import "./elements/AlertMessage";

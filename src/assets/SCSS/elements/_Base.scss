@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', 'Noto Sans', sans-serif;
+  line-height: 1.5;
+  background-color: $light;
+}
+
+a {
+  text-decoration: none;
+  color: $dark;
+  &:hover {
+    text-decoration: none;
+    color: $other;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+}

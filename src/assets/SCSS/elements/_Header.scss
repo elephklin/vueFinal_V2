@@ -1,0 +1,104 @@
+header {
+  background-color: $light;
+}
+.nav-link {
+  font-size: 20px;
+  &:hover {
+    color: $other;
+  }
+}
+
+.navTop {
+  background-color: $major;
+  .linkMove {
+    margin-left: 10px;
+  }
+
+  .slogan {
+    color: $light;
+    font-size: 18px;
+  }
+
+  .nav-link,
+  #dropdownMenuButton {
+    color: $light;
+    &:hover {
+      color: $other;
+    }
+  }
+
+  .dropdown-toggle {
+    &:after {
+      border: 0;
+    }
+  }
+
+  .cartButton {
+    position: relative;
+    .badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 60%;
+    }
+  }
+
+  .btn:focus {
+    box-shadow: 0 0 0 1px $other;
+  }
+
+  .dropdown-menu {
+    width: 400px;
+    max-height: 400px;
+    overflow-y: scroll;
+
+    .table tr,
+    .table td {
+      border-top: 1px solid $major;
+    }
+  }
+  
+
+  .navbar-toggler {
+    border: 2px solid $major;
+    .navbar-toggler-icon {
+      color: $major;
+    }
+  }
+}
+
+.nav_logo {
+  background-repeat: no-repeat;
+  text-indent: 110%;
+  overflow: hidden;
+  white-space: nowrap;
+
+  background-image: url("./assets/images/logo.png");
+
+  background-position-y: center;
+  background-size: contain;
+  font-size: 40px;
+}
+
+.modal-body {
+  width: 66.67%;
+}
+.placeholder_site {
+  padding-left: 35px;
+}
+.user {
+  position: relative;
+}
+.user_icon {
+  position: absolute;
+  top: 11px;
+  left: 10px;
+}
+.key {
+  position: relative;
+}
+.key_icon {
+  position: absolute;
+  top: 11px;
+  left: 10px;
+}

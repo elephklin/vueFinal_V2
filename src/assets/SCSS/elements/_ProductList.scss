@@ -1,0 +1,120 @@
+.ProductList_wall {
+  background-image: url("https://upload.cc/i1/2021/01/08/ZtW9CQ.jpg");
+  background-position: center 80%;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  position: relative;
+
+  .ProductList_wallTitle {
+    width: 300px;
+    height: 90px;
+    background-color: rgba($major, 0.8);
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    margin: auto;
+    transform: scaleX(0);
+    animation: ProductList_wallTitle 2s 0.5s forwards;
+    border-radius: 3px;
+
+    h2 {
+      width: 100%;
+      position: absolute;
+      line-height: 90px;
+      text-align: center;
+      font-size: 30px;
+      color: $base;
+      letter-spacing: 2px;
+    }
+  }
+
+  @keyframes ProductList_wallTitle {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .ProductList_wall {
+    height: 300px;
+
+    .ProductList_wallTitle {
+      width: 200px;
+      height: 90px;
+
+      h2 {
+        line-height: 90px;
+        font-size: 26px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .ProductList_wall {
+    height: 150px;
+
+    .ProductList_wallTitle {
+      width: 180px;
+      height: 60px;
+      top: 50px;
+      h2 {
+        line-height: 60px;
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+
+.list-category {
+  a {
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px $minor;
+    border: 1px solid $minor;
+    text-align: center;
+    display: block;
+    padding: 0.75rem;
+    transition: all 0.3s;
+    margin-bottom: 10px;
+
+    &:hover {
+      background-color: $minor;
+      color: $base;
+    }
+  }
+  .active {
+    border-radius: 10px;
+    background-color: $minor;
+    a {
+      color: $base;
+    }
+  }
+}
+
+
+.card-cover {
+  overflow: hidden;
+}
+.card-img {
+  transform: scale(1, 1);
+  transition: all 0.3s ease-out;
+  position: relative;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  &:hover {
+    transform: scale(1.2, 1.2);
+  }
+}
+.card-footer {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-top: 0px;
+}

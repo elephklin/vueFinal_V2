@@ -1,0 +1,16 @@
+.page-link {
+  color: $other;
+  background-color: $light;
+  border: 1px solid $other;
+
+  &:hover {
+    color: $light;
+    background-color: $other;
+    border-color: $other;
+  }
+}
+.page-item.active .page-link {
+  color: $light;
+  background-color: $other;
+  border-color: $other;
+}
