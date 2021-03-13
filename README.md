@@ -65,3 +65,22 @@ https://elephklin.github.io/vueFinal_V2/#/
 
 ###### 商品評價 & 相關產品瀏覽
 ![product2](https://upload.cc/i1/2021/03/13/wu9ZQ3.png)
+
+- 購物車 & 結帳流程
+###### 購物車下拉選單，點擊「結帳去」進入結帳流程
+![dropdown](https://upload.cc/i1/2021/03/13/9o7Eu4.png)
+
+###### 購物車頁面、首頁活動快訊優惠碼在此使用
+![cart](https://upload.cc/i1/2021/03/13/J1G7cM.png)
+
+###### 訂單資料填寫
+![order](https://upload.cc/i1/2021/03/13/Z5LUxC.png)
+
+###### 付款頁面
+![checkout](https://upload.cc/i1/2021/03/13/KL6pRm.png)
+
+###### 結帳完成頁面
+![finish](https://upload.cc/i1/2021/03/13/PGrFiL.png)
+
+###### 登入後台管理頁面
+![back](https://upload.cc/i1/2021/03/13/cYmMUd.png)
