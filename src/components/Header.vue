@@ -1,129 +1,110 @@
 <template>
   <div>
     <loading :active.sync="isLoading"></loading>
-    <header class="">
-      <div class="navTop">
-        <nav class="nav justify-content-between align-items-center container py-1">
-          <div class="d-flex linkMove">
-            <a class="nav-link" href="#" @click.prevent="openLoginModal" v-if="!isLogin">
-              <i class="fas fa-sign-in-alt"></i> 登入
-            </a>
-            <a class="nav-link" href="#" @click.prevent="logout" v-if="isLogin">
-              <i class="fas fa-sign-out-alt"></i> 登出
-            </a>
-            <router-link class="nav-link" href="#" to="/admin" v-if="isLogin">
-              <i class="fas fa-user"></i> 後台
-            </router-link>
-
-            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header mb-3">
-                    <h5 class="modal-title mx-auto" id="exampleModalLabel">
-                      管理者登入
-                    </h5>
-                    <button type="button" class="close p-0 m-0" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body mx-auto">
-                    <form class="" @submit.prevent="login">
-                      <div class="form-group user d-flex">
-                        <i class="fas fa-user user_icon"></i>
-                        <input type="email" v-model="user.username" class="form-control py-3 rounded-sm placeholder_site user_mail" id="" placeholder="帳號"/>
-                      </div>
-                      <div class="form-group key">
-                        <i class="fas fa-key key_icon"></i>
-                        <input type="password" v-model="user.password" class="form-control py-3 rounded-sm placeholder_site" id="" placeholder="密碼"/>
-                      </div>
-                      <button type="submit" class="btn btn-other d-block w-100 border-0 rounded-sm mb-3">
-                        登入後台管理
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="d-flex">
-            <div class="dropdown">
-              <button class="btn btn-lg dropdown-toggle cartButton" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="badge badge-pill badge-danger" v-if="cart.carts.length !== 0">{{ cart.carts.length }}</span>
-              </button>
-              <div class="dropdown-menu dropdown-menu-right px-2 mt-2" aria-labelledby="dropdownMenuButton">
-                <div v-if="cart.final_total !== 0">
-                  <p class="h5 text-center">選購商品</p>
-                  <table class="table">
-                    <tbody>
-                      <tr v-for="item in cart.carts" :key="item.id">
-                        <td class="align-middle text-center">
-                          <button class="btn btn-outline-danger btn-sm" @click="removeCart(item.id)">
-                            <i class="far fa-trash-alt "></i>
-                          </button>
-                        </td>
-                        <td class="align-middle text-center">
-                          {{ item.product.title }}
-                        </td>
-                        <td class="align-middle text-center">
-                          {{ item.qty }}/{{ item.product.unit }}
-                        </td>
-                        <td class="align-middle text-right" v-if="item.product.price">
-                          {{ item.total | currency }}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td colspan="3" class="text-right">總計</td>
-                        <td class="text-right">{{ cart.total | currency }}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <router-link href="#" class="btn btn-other btn-block" to="/cart">
-                    結帳去
-                  </router-link>
-                </div>
-                <div v-else class="py-2">
-                  <p class="h2 text-center">尚未選購商品</p>
-                  <router-link href="#" class="btn btn-other btn-block" to="/productlist/全部分類">
-                    來去逛逛
-                  </router-link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-
-      <nav class="navbar navbar-expand-lg container">
-        <router-link class="navbar-brand nav_logo" to="/">LOGO</router-link>
+    <header>
+      <nav class="navbar navbar-expand-md container nav__wrap">
+        <router-link class="navbar-brand nav__wrap__logo" to="/">LOGO</router-link>
         <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <i class="navbar-toggler-icon mt-2 fas fa-bars"></i>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav flex-fill justify-content-between">
-            <li class="nav-item mx-3">
-              <router-link class="nav-link font-weight-bold" :to="`/productlist/全部分類`">全部分類</router-link>
-            </li>
-            <li class="nav-item mx-3">
-              <router-link class="nav-link font-weight-bold" :to="`/productlist/客廳`">客廳</router-link>
-            </li>
-            <li class="nav-item mx-3">
-              <router-link class="nav-link font-weight-bold" :to="`/productlist/浴廁`">浴廁</router-link>
-            </li>
-            <li class="nav-item mx-3">
-              <router-link class="nav-link font-weight-bold" :to="`/productlist/書房`">書房</router-link>
-            </li>
-            <li class="nav-item mx-3">
-              <router-link class="nav-link font-weight-bold" :to="`/productlist/寢具`">寢具</router-link>
-            </li>
-            <li class="nav-item mx-3">
-              <router-link class="nav-link font-weight-bold" :to="`/productlist/廚房`">廚房</router-link>
+        <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <router-link to="/productlist/全部分類" class="nav-link font-weight-bold">商品</router-link>
             </li>
           </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#" @click.prevent="openLoginModal" v-if="!isLogin">
+                <i class="fas fa-sign-in-alt"></i> 登入
+              </a>
+              <a class="nav-link" href="#" @click.prevent="logout" v-if="isLogin">
+                <i class="fas fa-sign-out-alt"></i> 登出
+              </a>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" href="#" to="/admin" v-if="isLogin">
+                <i class="fas fa-user"></i> 後台
+              </router-link>
+            </li>
+          </ul>
+          <div class="dropdown">
+            <button class="btn btn-lg dropdown-toggle cartButton" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="badge badge-pill badge-danger" v-if="cart.carts.length !== 0">{{ cart.carts.length }}</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right px-2 mt-2" aria-labelledby="dropdownMenuButton">
+              <div v-if="cart.final_total !== 0">
+                <p class="h5 text-center">選購商品</p>
+                <table class="table">
+                  <tbody>
+                    <tr v-for="item in cart.carts" :key="item.id">
+                      <td class="align-middle text-center">
+                        <button class="btn btn-outline-danger btn-sm" @click="removeCart(item.id)">
+                          <i class="far fa-trash-alt "></i>
+                        </button>
+                      </td>
+                      <td class="align-middle text-center">
+                        {{ item.product.title }}
+                      </td>
+                      <td class="align-middle text-center">
+                        {{ item.qty }}/{{ item.product.unit }}
+                      </td>
+                      <td class="align-middle text-right" v-if="item.product.price">
+                        {{ item.total | currency }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" class="text-right">總計</td>
+                      <td class="text-right">{{ cart.total | currency }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <router-link href="#" class="btn btn-other btn-block" to="/cart">
+                  結帳去
+                </router-link>
+              </div>
+              <div v-else class="py-2">
+                <p class="h2 text-center">尚未選購商品</p>
+                <router-link href="#" class="btn btn-other btn-block" to="/productlist/全部分類">
+                  來去逛逛
+                </router-link>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
+
+      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header mb-3">
+              <h5 class="modal-title mx-auto" id="exampleModalLabel">
+                管理者登入
+              </h5>
+              <button type="button" class="close p-0 m-0" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body mx-auto">
+              <form @submit.prevent="login">
+                <div class="form-group user d-flex">
+                  <i class="fas fa-user user_icon"></i>
+                  <input type="email" v-model="user.username" class="form-control py-3 rounded-sm placeholder_site user_mail" placeholder="帳號"/>
+                </div>
+                <div class="form-group key">
+                  <i class="fas fa-key key_icon"></i>
+                  <input type="password" v-model="user.password" class="form-control py-3 rounded-sm placeholder_site" placeholder="密碼"/>
+                </div>
+                <button type="submit" class="btn btn-other d-block w-100 border-0 rounded-sm mb-3">
+                  登入後台管理
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </header>
   </div>
 </template>
@@ -143,13 +124,17 @@ export default {
       },
       cart: {
         carts: {}
-      }
+      },
+      products: [],
+      category: '',
+      categoryItem: []
     }
   },
 
   created () {
     const vm = this
     vm.checklogin()
+    vm.getProducts()
     vm.getCart()
     vm.$bus.$on('add_cart', (id, qty) => {
       vm.updateCart(id, qty)
@@ -268,8 +253,31 @@ export default {
           vm.isLoading = false
         }
       })
-    }
+    },
 
+    getProducts () {
+      const vm = this
+      const api = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_CUSTOM}/products/all`
+      vm.isLoading = true
+      vm.$http.get(api).then((res) => {
+        vm.products = res.data.products
+        vm.isLoading = false
+      })
+    },
+    changeCategory (item) {
+      const vm = this
+      vm.category = item
+    }
+  },
+
+  computed: {
+    filterCategory () {
+      const vm = this
+      vm.products.forEach((item) => {
+        vm.categoryItem.push(item.category)
+      })
+      return vm.categoryItem.filter((item, index, ary) => ary.indexOf(item) === index)
+    }
   }
 }
 </script>

@@ -6,19 +6,19 @@
         建立新的產品
       </button>
     </div>
-    <table class="table table-hover mb-5 backProducts_table">
+    <table class="table table-hover mb-5 backProducts__wrap">
       <thead>
-        <tr class="">
-          <th class="text-center" width="">分類</th>
+        <tr>
+          <th class="text-center">分類</th>
           <th class="text-center">產品名稱</th>
-          <th class="text-center" width="">原價</th>
-          <th class="text-center" width="">售價</th>
-          <th class="text-center RWD_view" width="100">是否啟用</th>
+          <th class="text-center">原價</th>
+          <th class="text-center">售價</th>
+          <th class="text-center th__hide" width="100">是否啟用</th>
           <th class="text-center" width="120">操作</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="" v-for="item in products" :key="item.id">
+        <tr v-for="item in products" :key="item.id">
           <td class="text-center">{{ item.category }}</td>
           <td class="text-center">{{ item.title }}</td>
           <td class="text-right">
@@ -27,7 +27,7 @@
           <td class="text-right">
             {{ item.price | currency }}
           </td>
-          <td class="text-center RWD_view">
+          <td class="text-center th__hide">
             <span v-if="item.is_enabled" class="text-success">啟用</span>
             <span v-else class="text-danger">未啟用</span>
           </td>
@@ -100,7 +100,7 @@
                     @change="uploadFile"
                   />
                 </div>
-                <img class="img-fluid" :src="tempProduct.imageUrl" />
+                <img class="img-fluid" alt="商品圖片" :src="tempProduct.imageUrl" />
               </div>
               <div class="col-sm-8">
                 <div class="form-group">
@@ -292,13 +292,14 @@ export default {
       })
     },
     openModal (isNew, item) {
-      $('#productModal').modal('show')
       if (isNew) {
         this.tempProduct = {}
         this.isNew = true
+        $('#productModal').modal('show')
       } else {
         this.tempProduct = { ...item }
         this.isNew = false
+        $('#productModal').modal('show')
       }
     },
 
@@ -324,8 +325,8 @@ export default {
 
     openDelProductModal (item) {
       const vm = this
-      $('#delProductModal').modal('show')
       vm.tempProduct = { ...item }
+      $('#delProductModal').modal('show')
     },
     delProduct () {
       const vm = this

@@ -1,111 +1,149 @@
-.process_style {
-  .process_now {
-    background-color: $other;
-    color: $light;
+.checkout_base {
+  border-top: 1px solid $other;
+  .process_style {
+    .process_now {
+      background-color: $other;
+      color: $light;
+      border: 1.25px solid $other;
+    }
+    .process_undone {
+      border: 1.25px solid $other;
+      color: $other;
+    }
 
-    border: 1.5px solid $other;
-  }
-  .process_undone {
-    border: 1.5px solid $other;
-    color: $other;
-  }
-}
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
-.checkout_table {
-  border: 1.5px solid $other;
-
-  th,
-  td {
-    border-top: 1px solid $other;
-  }
-  thead th {
-    border-bottom: 0;
-  }
-  thead tr {
-    background-color: $other;
-    color: $light;
-  }
-}
-
-.imgSize {
-  background-size: cover;
-  background-position: center center;
-  width: 50px;
-  height: 50px;
-}
-
-
-.Checkout_wall {
-  background-image: url("https://upload.cc/i1/2021/01/07/6x0mIf.jpg");
-  background-position: center 80%;
-  background-size: cover;
-  height: 400px;
-  width: 100%;
-  position: relative;
-
-  .Checkout_wallTitle {
-    width: 300px;
-    height: 90px;
-    background-color: rgba($major, 0.8);
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 70px;
-    bottom: 0;
-    margin: auto;
-    transform: scaleX(0);
-    animation: Checkout_wallTitle 2s 0.5s forwards;
-    border-radius: 3px;
-
-    h2 {
-      width: 100%;
-      position: absolute;
-      line-height: 90px;
+    li {
+      width: 33.3%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      font-size: 30px;
-      color: $base;
-      letter-spacing: 2px;
+
+      span {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
+
+      p {
+        margin-top: 0.5rem;
+        font-weight: 500;
+        color: $other;
+      }
     }
   }
 
-  @keyframes Checkout_wallTitle {
-    0% {
-      transform: scaleX(0);
+  .checkout_table {
+    border: 1.5px solid $other;
+
+    th,
+    td {
+      border-top: 1px solid $other;
     }
-    100% {
-      transform: scaleX(1);
+    thead th {
+      border-bottom: 0;
+    }
+    thead tr {
+      background-color: $other;
+      color: $light;
     }
   }
-}
 
-@media (max-width: 768px) {
+  .imgSize {
+    background-size: cover;
+    background-position: center center;
+    width: 70px;
+    height: 70px;
+  }
+
   .Checkout_wall {
-    height: 300px;
+    background-image: url("https://upload.cc/i1/2021/01/07/6x0mIf.jpg");
+    background-position: center 80%;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    position: relative;
 
     .Checkout_wallTitle {
-      width: 200px;
+      width: 300px;
       height: 90px;
+      background-color: rgba($major, 0.8);
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      transform: scaleX(0);
+      animation: Checkout_wallTitle 2s 0.5s forwards;
+      border-radius: 3px;
 
       h2 {
+        width: 100%;
+        position: absolute;
         line-height: 90px;
-        font-size: 26px;
+        text-align: center;
+        font-size: 30px;
+        color: $base;
+        letter-spacing: 2px;
+      }
+    }
+
+    @keyframes Checkout_wallTitle {
+      0% {
+        transform: scaleX(0);
+      }
+      100% {
+        transform: scaleX(1);
       }
     }
   }
-}
 
-@media (max-width: 576px) {
-  .Checkout_wall {
-    height: 150px;
+  @media (max-width: 768px) {
+    .Checkout_wall {
+      height: 300px;
 
-    .Checkout_wallTitle {
-      width: 180px;
-      height: 60px;
-      top: 50px;
-      h2 {
-        line-height: 60px;
-        font-size: 22px;
+      .Checkout_wallTitle {
+        width: 200px;
+        height: 90px;
+
+        h2 {
+          line-height: 90px;
+          font-size: 26px;
+        }
       }
     }
+
+    .imgSize {
+      max-height: 50px;
+      max-width: 50px;
+    }
   }
+
+  @media (max-width: 576px) {
+    .Checkout_wall {
+      height: 150px;
+
+      .Checkout_wallTitle {
+        width: 180px;
+        height: 60px;
+        top: 0;
+        h2 {
+          line-height: 60px;
+          font-size: 22px;
+        }
+      }
+    }
+
+    .imgSize {
+      display: none;
+    }
+  }
+
 }

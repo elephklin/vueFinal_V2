@@ -1,37 +1,86 @@
-.process_style {
-  .process_now {
-    background-color: $other;
-    color: $light;
-    border: 1.5px solid $other;
-  }
-  .process_undone {
-    border: 1.5px solid $other;
-    color: $other;
-  }
-}
+.cart__wrap {
+  border-top: 1px solid $other;
+  .process_style {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .process_now {
+      background-color: $other;
+      color: $light;
+      border: 1.25px solid $other;
+    }
+    .process_undone {
+      border: 1.25px solid $other;
+      color: $other;
+    }
+    li {
+      width: 33.3%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
 
-.cart_table {
+      span {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
 
-  th,
-  td {
-    border-top: 1px solid $other;
-  }
-  thead th {
-    border-bottom: 0;
-  }
-  thead tr {
-    background-color: $other;
-    color: $light;
+      p {
+        margin-top: 0.5rem;
+        font-weight: 500;
+        color: $other;
+      }
+    }
   }
 
-  .imgSize {
-    background-size: cover;
-    background-position: center center;
-    width: 100px;
-    height: 100px;
-  }
-}
+  .cart__table {
+    th,
+    td {
+      border-top: 1px solid $other;
+    }
+    thead th {
+      border-bottom: 0;
+    }
+    thead tr {
+      background-color: $other;
+      color: $light;
+    }
 
-.code_feedback {
-  font-size: 12px;
+    .imgSize {
+      background-size: cover;
+      background-position: center center;
+      width: 100px;
+      height: 100px;
+    }
+    @media (max-width: 992px) {
+      .imgSize {
+        max-height: 70px;
+        max-width: 70px;
+      }
+    }
+    @media (max-width: 768px) {
+      .imgSize {
+        max-height: 50px;
+        max-width: 50px;
+      }
+    }
+    @media (max-width: 576px) {
+      .imgSize {
+        display: none;
+      }
+    }
+    @media (max-width: 400px) {
+      #cartNum {
+        max-width: 60px;
+      }
+    }
+  }
+
+  .code__feedback {
+    font-size: 12px;
+  }
 }

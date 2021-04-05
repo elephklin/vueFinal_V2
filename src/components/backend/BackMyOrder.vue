@@ -1,12 +1,12 @@
 <template>
   <div>
     <loading :active.sync="isLoading"></loading>
-    <div class="myOrder_table table-responsive my-4">
+    <div class="backOrder__wrap table-responsive my-4">
       <table class="table table-hover">
         <thead>
-          <tr class="">
+          <tr>
             <th class="text-nowrap text-center" width="120">購買日期</th>
-            <th class="text-center text-nowrap RWD_view">訂單編號</th>
+            <th class="text-center text-nowrap th__hide">訂單編號</th>
             <th class="text-nowrap text-center">購買產品</th>
             <th class="text-nowrap text-center">應付金額</th>
             <th class="text-nowrap text-center">是否付款</th>
@@ -14,11 +14,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="" v-for="item in orders" :key="item.id">
+          <tr v-for="item in orders" :key="item.id">
             <td class="align-middle text-center">
               {{ item.create_at | date }}
             </td>
-            <td class="align-middle text-center RWD_view">{{ item.id }}</td>
+            <td class="align-middle text-center th__hide">{{ item.id }}</td>
             <td class="text-center">
               <ul class="mb-0">
                 <li v-for="i in item.products" :key="i.id">
@@ -31,7 +31,7 @@
               <div v-if="item.is_paid" class="text-success text-center">
                 已付款
               </div>
-              <div v-if="!item.is_paid" class="text-danger text-center">
+              <div v-else class="text-danger text-center">
                 未付款
               </div>
             </td>
@@ -74,11 +74,11 @@
           <div class="modal-body w-100">
             <table class="table table-hover mt-3">
               <thead>
-                <tr class="">
-                  <th width="">訂購商品資訊</th>
-                  <th width="" class="text-center">單價</th>
-                  <th width="" class="text-center">數量</th>
-                  <th width="" class="text-center">小計</th>
+                <tr>
+                  <th>訂購商品資訊</th>
+                  <th class="text-center">單價</th>
+                  <th class="text-center">數量</th>
+                  <th class="text-center">小計</th>
                 </tr>
               </thead>
               <tbody>
@@ -92,7 +92,7 @@
                       <div class="imgSize" :style="`background-image:url('${item.product.imageUrl}');`"
                       ></div>
                       <div class="align-self-center ml-4">
-                        <span class="">{{ item.product.title }}</span>
+                        <span>{{ item.product.title }}</span>
                       </div>
                     </div>
                   </td>

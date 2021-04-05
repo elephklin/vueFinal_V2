@@ -9,7 +9,7 @@
     <div class="table-responsive mb-5">
       <table class="table table-hover mt-4">
         <thead>
-          <tr class="">
+          <tr>
             <th class="text-center text-nowrap">名稱</th>
             <th class="text-center text-nowrap">優惠碼</th>
             <th class="text-center text-nowrap" width="80">折扣</th>
@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="" v-for="item in coupons" :key="item.id">
+          <tr v-for="item in coupons" :key="item.id">
             <td class="text-center align-middle text-nowrap">
               {{ item.title }}
             </td>
@@ -223,10 +223,10 @@ export default {
   methods: {
     openCouponModal (isNew, item) {
       const vm = this
-      $('#couponModal').modal('show')
       if (isNew) {
         vm.isNew = true
         vm.tempCoupon = {}
+        $('#couponModal').modal('show')
       } else {
         vm.isNew = false
         vm.tempCoupon = { ...item }
@@ -234,20 +234,20 @@ export default {
           .toISOString()
           .split('T')
         vm.due_date = dateAndTime[0]
+        $('#couponModal').modal('show')
       }
     },
 
     removeCouponModal (item) {
       const vm = this
-      $('#delCoupon').modal('show')
       vm.tempCoupon = { ...item }
+      $('#delCoupon').modal('show')
     },
 
     updateCoupon () {
       const vm = this
       let api = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_CUSTOM}/admin/coupon`
       let httpMethod = 'post'
-      // 注意：此處 isNew 是由 openCouponModal 傳過來的值
       if (!vm.isNew) {
         api = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_CUSTOM}/admin/coupon/${vm.tempCoupon.id}`
         httpMethod = 'put'
