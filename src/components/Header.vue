@@ -28,8 +28,9 @@
               </router-link>
             </li>
           </ul>
+
           <div class="dropdown">
-            <button class="btn btn-lg dropdown-toggle cartButton" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-shopping-cart"></i>
               <span class="badge badge-pill badge-danger" v-if="cart.carts.length !== 0">{{ cart.carts.length }}</span>
             </button>

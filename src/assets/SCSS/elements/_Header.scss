@@ -6,7 +6,7 @@ header {
       overflow: hidden;
       white-space: nowrap;
     
-      background-image: url("./assets/images/logo.png");
+      background-image: url("./assets/images/brand.png");
     
       background-position-y: center;
       background-size: contain;
@@ -43,8 +43,8 @@ header {
         }
       }
       .dropdown-menu {
-        width: 400px;
-        max-height: 400px;
+        min-width: 350px;
+        height: auto;
         overflow-y: scroll;
     
         .table tr,

@@ -219,8 +219,6 @@ export default {
       swiperOption: {
         spaceBetween: 30,
         slidesPerGroup: 3,
-        // loop: true,
-        // loopedSlides: 20,
         loopFillGroupWithBlank: true,
         pagination: {
           el: '.swiper-pagination',

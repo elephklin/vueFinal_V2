@@ -21,87 +21,89 @@
             </ul>
           </div>
           <div class="col-sm-12 col-md-10">
-            <table class="table table-hover mb-5 cart__table">
-              <thead>
-                <tr>
-                  <th scope="col">商品資訊</th>
-                  <th scope="col" class="text-center">單價</th>
-                  <th scope="col" class="text-center">數量</th>
-                  <th scope="col" class="text-center">小計</th>
-                  <th scope="col" class="text-center">操作</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="item in cart.carts" :key="item.id">
-                  <td class="align-middle">
-                    <div class="d-flex justify-content-start">
-                      <div
-                        class="imgSize img-fluid"
-                        :style="
-                          `background-image:url('${item.product.imageUrl}');`
-                        "
-                      ></div>
-                      <div class="align-self-center ml-sm-4">
-                        <span>{{ item.product.title }}</span>
-                        <div class="text-success" v-if="item.coupon">
-                          已套用優惠券
+            <div class="cart__table">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">商品資訊</th>
+                    <th scope="col" class="text-center">單價</th>
+                    <th scope="col" class="text-center">數量</th>
+                    <th scope="col" class="text-center">小計</th>
+                    <th scope="col" class="text-center">操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="item in cart.carts" :key="item.id">
+                    <td class="align-middle">
+                      <div class="d-flex justify-content-start">
+                        <div
+                          class="imgSize img-fluid"
+                          :style="
+                            `background-image:url('${item.product.imageUrl}');`
+                          "
+                        ></div>
+                        <div class="align-self-center ml-sm-4">
+                          <span>{{ item.product.title }}</span>
+                          <div class="text-success" v-if="item.coupon">
+                            已套用優惠券
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="align-middle text-right">
-                    {{ item.product.price | currency }}
-                  </td>
-                  <td class="align-middle">
-                    <div class="d-flex justify-content-start text-center">
-                      <select
-                        style="text-align: center; text-align-last: center;"
-                        id="cartNum"
-                        class="form-control"
-                        v-model="item.qty"
-                        @change="changeCart(item.id, item.qty, item.product_id)"
-                      >
-                        <option class="text-center" :value="num" v-for="num in 20" :key="num">{{ num }}</option>
-                      </select>
-                      <div class="align-self-center ml-2 ml-sm-3">
-                        {{ item.product.unit }}
+                    </td>
+                    <td class="align-middle text-right">
+                      {{ item.product.price | currency }}
+                    </td>
+                    <td class="align-middle">
+                      <div class="d-flex justify-content-start text-center">
+                        <select
+                          style="text-align: center; text-align-last: center;"
+                          id="cartNum"
+                          class="form-control"
+                          v-model="item.qty"
+                          @change="changeCart(item.id, item.qty, item.product_id)"
+                        >
+                          <option class="text-center" :value="num" v-for="num in 20" :key="num">{{ num }}</option>
+                        </select>
+                        <div class="align-self-center ml-2 ml-sm-3">
+                          {{ item.product.unit }}
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td class="align-middle text-right">
-                    <span class>{{ (item.product.price * item.qty) | currency }}</span>
-                  </td>
-                  <td class="align-middle text-center">
-                    <button
-                      type="button"
-                      class="btn btn-outline-danger btn-sm"
-                      @click.prevent="removeCart(item.id)"
-                    >
-                      <i class="far fa-trash-alt"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
+                    </td>
+                    <td class="align-middle text-right">
+                      <span class>{{ (item.product.price * item.qty) | currency }}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <button
+                        type="button"
+                        class="btn btn-outline-danger btn-sm"
+                        @click.prevent="removeCart(item.id)"
+                      >
+                        <i class="far fa-trash-alt"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
 
-              <tfoot>
-                <tr v-if="cart.final_total === cart.total">
-                  <td colspan="6" class="text-right">
-                    合計：
-                    <span>{{ cart.total | currency }}</span>
-                  </td>
-                </tr>
-                <tr v-if="cart.final_total !== cart.total">
-                  <td colspan="6" class="text-right text-secondary">
-                    折扣前合計：<span>{{ cart.total | currency }}</span>
-                  </td>
-                </tr>
-                <tr v-if="cart.final_total !== cart.total">
-                  <td colspan="6" class="h5 text-right">
-                    折扣後合計：<span class="h4 text-danger">{{ cart.final_total | currency }}</span>
-                  </td>
-                </tr>
-              </tfoot>
-            </table>
+                <tfoot>
+                  <tr v-if="cart.final_total === cart.total">
+                    <td colspan="6" class="text-right">
+                      合計：
+                      <span>{{ cart.total | currency }}</span>
+                    </td>
+                  </tr>
+                  <tr v-if="cart.final_total !== cart.total">
+                    <td colspan="6" class="text-right text-secondary">
+                      折扣前合計：<span>{{ cart.total | currency }}</span>
+                    </td>
+                  </tr>
+                  <tr v-if="cart.final_total !== cart.total">
+                    <td colspan="6" class="h5 text-right">
+                      折扣後合計：<span class="h4 text-danger">{{ cart.final_total | currency }}</span>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
 
             <div class="input-group mb-3">
               <input

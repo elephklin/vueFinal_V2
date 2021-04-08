@@ -395,7 +395,6 @@ export default {
     }
   },
   computed: {
-    // 過濾同種類商品
     filterRelated () {
       const vm = this
       return vm.products.filter((item) => {

@@ -9,7 +9,6 @@ import VueCarousel from 'vue-carousel'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 
-// import * as VeeValidate from 'vee-validate';
 import VeeValidate from 'vee-validate'
 import VueI18n from 'vue-i18n'
 import zhTW from 'vee-validate/dist/locale/zh_TW'
@@ -34,14 +33,13 @@ Vue.use(VueCarousel)
 
 Vue.use(VueAwesomeSwiper)
 
-// cookie 儲存
 axios.defaults.withCredentials = true
 
 const i18n = new VueI18n({
   locale: 'zhTW'
 })
 Vue.use(VeeValidate, {
-  events: 'input|blur', // 這是為了讓使用者離開該欄位時觸發驗證
+  events: 'input|blur',
   i18n,
   dictionary: {
     zhTW
@@ -55,7 +53,6 @@ new Vue({
   render: (h) => h(App)
 }).$mount('#app')
 
-// router 環境內不能使用 this.$http 取得 API 資料
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
     const api = `${process.env.VUE_APP_API}/api/user/check`

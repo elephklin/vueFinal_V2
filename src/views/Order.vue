@@ -214,10 +214,10 @@ export default {
             if (res.data.success) {
               vm.$bus.$emit('change_cart')
               vm.$router.push(`/checkout/${res.data.orderId}`)
-              vm.isLoading = false
             } else {
               vm.$bus.$emit('message:push', '欄位不得為空', 'danger')
             }
+            vm.isLoading = false
           })
         }
       })

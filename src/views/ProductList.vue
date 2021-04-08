@@ -126,9 +126,7 @@ export default {
       if (selectCategory === '全部分類') {
         return vm.products
       } else {
-        return vm.products.filter((item) => {
-          return item.category === selectCategory
-        })
+        return vm.products.filter((item) => item.category === selectCategory)
       }
     }
   }
