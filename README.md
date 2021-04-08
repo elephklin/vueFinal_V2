@@ -1,6 +1,7 @@
 # 居家生活網站 -- Texture Life
 
 > 享受質感生活就來 Texture Life 吧 !
+
 ![home](https://upload.cc/i1/2021/04/05/o2zdMU.png)
 
 ## 網站首頁
