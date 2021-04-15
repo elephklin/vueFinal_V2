@@ -144,7 +144,7 @@ export default {
       vm.getCart()
     })
   },
-  beforeDestroy: function () {
+  beforeDestroy () {
     this.$bus.$off('add_cart')
     this.$bus.$off('change_cart')
   },
@@ -227,7 +227,7 @@ export default {
         })
       } else {
         const removeApi = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_CUSTOM}/cart/${sameItem.id}`
-        vm.$http.delete(removeApi).then((res) => {
+        vm.$http.delete(removeApi).then(() => {
           cartData = {
             product_id: sameItem.product_id,
             qty: sameItem.qty + qty
