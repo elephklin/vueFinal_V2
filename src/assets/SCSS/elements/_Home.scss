@@ -49,10 +49,10 @@
       }
     }
     .activity__wrap__bgLeft {
-      background-image: url("https://upload.cc/i1/2021/02/08/1GEHzB.jpg");
+      background-image: url("./assets/images/1GEHzB.png");
     }
     .activity__wrap__bgRight {
-      background-image: url("https://upload.cc/i1/2021/02/08/7Z2Dbw.jpg");
+      background-image: url("./assets/images/7Z2Dbw.png");
     }
   }
 
@@ -154,13 +154,6 @@
     }
   }
 
-  @media (max-width: 1200px) {
-    .features {
-      .features__title {
-        margin-left: 0px;
-      }
-    }
-  }
   @media (max-width: 768px) {
     .activity {
       .activity__wrap {

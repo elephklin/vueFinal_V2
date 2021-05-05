@@ -2,8 +2,9 @@
   <div>
     <loading :active.sync="isLoading"></loading>
     <header>
+
       <nav class="navbar navbar-expand-md container nav__wrap">
-        <router-link class="navbar-brand nav__wrap__logo" to="/">LOGO</router-link>
+        <router-link title="點擊至首頁" class="navbar-brand nav__wrap__logo" to="/">LOGO</router-link>
         <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <i class="navbar-toggler-icon mt-2 fas fa-bars"></i>
         </button>
@@ -128,7 +129,8 @@ export default {
       },
       products: [],
       category: '',
-      categoryItem: []
+      categoryItem: [],
+      isHide: false
     }
   },
 
@@ -268,6 +270,11 @@ export default {
     changeCategory (item) {
       const vm = this
       vm.category = item
+    },
+
+    meunSwitch () {
+      const vm = this
+      vm.isHide = true
     }
   },
 

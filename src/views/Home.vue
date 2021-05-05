@@ -18,7 +18,7 @@
       <slide v-for="(item, index) in slideContent" :key="index">
         <div
           class="carousel-img"
-          :style="`background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.3)),url('${item.imgUrl}')`"
+          :style ="{backgroundImage:`linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.3)),url( ${require('../assets/images/'+item)} )`}"
         >
           <div class="content text-center">
             <div class="content_text text-light">想輕鬆擁有質感生活嗎？</div>
@@ -60,7 +60,7 @@
       <h3 class="features__title mb-3 text-other">商店特色</h3>
       <div class="row align-items-center">
         <div class="col-md-6 mb-4 mb-sm-4 mb-md-0">
-          <img class="features__img mx-auto" src="https://upload.cc/i1/2021/01/29/xQB5La.jpg" alt="店鋪諮詢示意圖">
+          <img class="features__img mx-auto" src="@/assets/images/xQB5La.png" alt="店鋪諮詢示意圖">
         </div>
         <div class="col-md-6">
           <div class="row">
@@ -194,26 +194,11 @@ export default {
       coupons: [],
       someLocalProperty: [],
       slideContent: [
-        {
-          imgUrl: 'https://upload.cc/i1/2021/01/07/7IX5bj.jpg',
-          title: ''
-        },
-        {
-          imgUrl: 'https://upload.cc/i1/2021/01/07/1nFEZG.jpg',
-          title: ''
-        },
-        {
-          imgUrl: 'https://upload.cc/i1/2021/01/07/6x0mIf.jpg',
-          title: ''
-        },
-        {
-          imgUrl: 'https://upload.cc/i1/2021/01/07/sFu8lH.jpg',
-          title: ''
-        },
-        {
-          imgUrl: 'https://upload.cc/i1/2021/01/07/jCp2rV.jpg',
-          title: ''
-        }
+        '1nFEZG.png',
+        '6x0mIf.png',
+        '7IX5bj.png',
+        'jCp2rV.png',
+        'sFu8lH.png'
       ],
 
       swiperOption: {

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AlertMessage />
     <loading :active.sync="isLoading"></loading>
     <div class="cart__wrap">
       <div class="container py-5">
@@ -144,6 +145,7 @@
 </template>
 
 <script>
+import AlertMessage from '@/components/AlertMessage.vue'
 
 export default {
   data () {
@@ -181,7 +183,6 @@ export default {
       vm.$http.delete(api).then((res) => {
         if (res.data.success) {
           vm.$bus.$emit('change_cart')
-          vm.$bus.$emit('message:push', res.data.message, 'success')
           vm.getCart()
           vm.isLoading = false
         }
@@ -218,13 +219,16 @@ export default {
           vm.getCart()
           vm.isLoading = false
         } else {
+          vm.$bus.$emit('message:push', res.data.message, 'danger')
           vm.coupons.code = ''
           vm.isLoading = false
         }
       })
     }
 
+  },
+  components: {
+    AlertMessage
   }
-
 }
 </script>

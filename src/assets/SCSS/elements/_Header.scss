@@ -1,13 +1,14 @@
 header {
+
   .nav__wrap {
     .nav__wrap__logo {
       background-repeat: no-repeat;
       text-indent: 110%;
       overflow: hidden;
       white-space: nowrap;
-    
+
       background-image: url("./assets/images/brand.png");
-    
+
       background-position-y: center;
       background-size: contain;
       font-size: 30px;
@@ -19,7 +20,7 @@ header {
         color: $major;
       }
     }
-    
+
     .dropdown {
       button {
         position: relative;
@@ -46,7 +47,7 @@ header {
         min-width: 350px;
         height: auto;
         overflow-y: scroll;
-    
+
         .table tr,
         .table td {
           border-top: 1px solid $major;
@@ -108,7 +109,8 @@ header {
         margin-right: 55px;
       }
     }
+    .hide {
+      display: none;
+    }
   }
-
 }
-
